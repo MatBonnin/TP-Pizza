@@ -1,0 +1,24 @@
+<%- include('includes/head') %>
+    <form class="form-group row " method="POST" action="/modifierIngredient">
+        <input type="number" max="3" step="0.1" class="form-control" value="<%= ingredient[0].id %>" name="id">
+        <div class="mb-3">
+            <label class="form-label" name="nom">Nom ingredient : </label>
+            <input autocomplete="off" type="text" max="3" step="0.1" class="form-control" value="<%= ingredient[0].nom %>" name="nom">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" name="prix"> prix : </label>
+            <input autocomplete="off"max="100" type="number" class="form-control" value="<%= ingredient[0].prix %>" name="prix">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" name="stock"> stock : </label>
+            <input autocomplete="off"max="100" type="number" class="form-control" value="<%= ingredient[0].unité %>" name="stock">
+        </div>
+        <label class="form-label" name="likes"> likes : </label>
+        <input autocomplete="off"max="100" type="number" class="form-control" value="<%= ingredient[0].likes %>" name="likes">
+    </div>
+        <div class="col-8">
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </div>
+    </form>
+</body>
+</html>

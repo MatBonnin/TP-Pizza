@@ -11,3 +11,22 @@ body{
     font-size: 18px;
     border-radius: 20px;
   }
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pizza{
+    display: flex;
+    flex-direction: column;
+    border: 1px black solid;
+    margin-top: 5%;
+    width: 20%;
+  }
+
+  h3{
+    text-align: center;
+  }

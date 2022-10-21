@@ -1,0 +1,75 @@
+<%- include('includes/head') %>
+
+
+    <table class="table table-white">
+        <thead>
+            <tr>
+                <th>Ingrédient</th>
+                <th>En stock</th>
+                <th>Prix</th>
+                <th>Like</th>
+                <th>Supprimer</th>
+                <th>Modifier</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+
+            <% ingredients.forEach(function(ingredient){ %>
+                <tr>
+                    <td><%= ingredient.nom %></td>
+                    <td><%= ingredient.unité %></td>
+                    <td><%= ingredient.prix %>€</td>
+                    <td><a href="/like/<%= ingredient.id%>"><%= ingredient.likes %></a></td>
+                    <td><a href="/ingredients/supprimer/<%= ingredient.id%>"><i class="bi bi-trash3-fill"></i></a></td>
+                    <td><a href="/modifierIngredient/<%= ingredient.id%>"><i class="bi bi-pencil-square"></i></a></td>
+
+                </tr>
+            <% }) %>
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Ajouter ingredient
+              </button>
+    
+        
+    
+        </tbody>
+    </table>
+</body>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="form-group row" method="POST" action="/ajoutIngredient">
+                <div class="mb-3">
+                    <label class="form-label" name="nom">Nom ingredient : </label>
+                    <input autocomplete="off" type="text" max="3" step="0.1" class="form-control" name="nom">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" name="prix"> prix : </label>
+                    <input autocomplete="off"max="100" type="number" class="form-control" name="prix">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" name="stock"> stock : </label>
+                    <input autocomplete="off"max="100" type="number" class="form-control" name="stock">
+                </div>
+                <div class="col-8">
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
